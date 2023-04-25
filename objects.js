@@ -8,39 +8,52 @@
 //   { name: 'Max', age: 19 },
 // ];
 
-function names(name,age){
+function names(people){
+  return people.filter(person=>person.Age>=18,
+    person=>person.name)
+}
     const people=[
         { name: 'Alice', age: 17 },
           { name: 'Eunice', age: 22 },
           { name: 'Charlie', age: 14 },
           { name: 'Max', age: 19 },
     ]
-    for 
-}
-
-
+console.log(names(people))
 // Write a function that takes an array of objects, where each object represents 
 // a product with a name, price, and category property. The function should return an
 //  object that groups the products by their categories, with the category names as
 //   keys and the arrays of products as values.
-// const products = [
-//   { name: 'Laptop', price: 1200, category: 'Electronics' },
-//   { name: 'Shirt', price: 25, category: 'Clothing' },
-//   { name: 'Headphones', price: 80, category: 'Electronics' },
-//   { name: 'Shoes', price: 60, category: 'Clothing' },
-// ];
-
-
-
+const products = [
+  { name: 'Laptop', price: 1200, category: 'Electronics' },
+  { name: 'Shirt', price: 25, category: 'Clothing' },
+  { name: 'Headphones', price: 80, category: 'Electronics' },
+  { name: 'Shoes', price: 60, category: 'Clothing' },
+];
+const objectByCategories=products.reduce((a,b)=>{
+  const{category}=b;
+  a[category]=a[category] ??[];
+  a[category].push(b);
+  return(a);
+})
+console.log(objectByCategories);
 // Given an array of objects, where each object represents a student with a name and 
 // an array of scores, write a function that returns a new array containing the names
 //  of all students whose average score is greater than or equal to 85.
-// const students = [
-//   { name: 'John', scores: [90, 80, 85] },
-//   { name: 'Jane', scores: [95, 92, 88] },
-//   { name: 'Jim', scores: [70, 80, 75] },
-//   { name: 'Jill', scores: [85, 90, 84] },
-// ];
+const students = [
+  { name: 'John', scores: [90, 80, 85] },
+  { name: 'Jane', scores: [95, 92, 88] },
+  { name: 'Jim', scores: [70, 80, 75] },
+  { name: 'Jill', scores: [85, 90, 84] },
+];
+var averageMarks=0;
+for(let i=0;i<students.length;i++){
+  averageMarks +=students[i][1];
+  let total=(averageMarks/students.length);
+if(total>=85){
+  console.log(total)
+}
+}
+console.log(averageMarks);
 
 
 // Given an object representing a car, with properties for the make, model, year, and a
